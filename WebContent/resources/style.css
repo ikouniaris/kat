@@ -1,0 +1,45 @@
+#container {
+	background: #dcdcdc;
+	border-style: none;
+	min-height: 100px;
+	width: 400px;
+	top: 20%;
+	left: 50%;
+	margin-top: 2%;
+	margin-left: 35%;
+}
+
+input {
+	margin: 4px 0;
+}
+
+#submit {
+	background-color: #008CBA; /* Blue */
+	border: none;
+	color: white;
+	font-size: 20px;
+	border-radius: 5px;
+}
+
+#reset {
+	background-color: #FFFF00; /* yellow*/
+	border: none;
+	color: white;
+	font-size: 20px;
+	border-radius: 5px
+}
+
+#back {
+	background-color: #FF0000; /* yellow*/
+	border: none;
+	color: white;
+	font-size: 20px;
+	border-radius: 5px
+}
+
+.button {
+	font-size: 70%;
+	padding: 12px;
+	width: 200px;
+	cursor: pointer;
+}
