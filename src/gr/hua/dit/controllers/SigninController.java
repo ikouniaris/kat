@@ -30,8 +30,7 @@ import gr.hua.dit.entities.Employee;
 @RequestMapping(value = "/SigninController")
 public class SigninController extends HttpServlet{
 
-	private final String userID = "admin";
-	private final String password = "password";
+
 	
 	// inject the customer dao
     @Autowired
@@ -50,23 +49,17 @@ public class SigninController extends HttpServlet{
     	String password = request.getParameter("password");
     	
     	
-    	// Check if user is administrator
-    	if (userID.equals(username) && password.equals(password)) {
-			System.out.println("Admin has come online");
-			model.addAttribute("greeting","Hello admin! i missed you!");
-			// Redirect admin to his web page
-			return "Admin";
-				
-		} // If the user is not admin, check whether he/she is an employee
-		else {
+    	
 			 // get employees from dao
 	    	System.out.println("Inside loop of doPost method of SigninController\n");
 
 	           List<Employee> employees = admin.printEmployees();	
 	            
 	           for(Employee e : employees) {
-	        	   System.out.println(e.getFirstname()+"\n");
-	        	   if(e.getUsername().equals(username) && e.getEmail().equals(password) && e.getPosition().equals("manager")){
+	        	   if(e.getUsername().equals(username) && e.getEmail().equals(password) && e.getPosition().equals("admin")){
+						return "Admin";
+	        	   }
+	        	   else if (e.getUsername().equals(username) && e.getEmail().equals(password) && e.getPosition().equals("manager")){
 						return "Manager";
 					}else if(e.getUsername().equals(username) && e.getEmail().equals(password) && e.getPosition().equals("director")) {
 						return "Director";
@@ -74,7 +67,7 @@ public class SigninController extends HttpServlet{
 	            }
 			return "Signin";
 		}
-	}
+	
     	
     	
     
